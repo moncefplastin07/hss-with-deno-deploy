@@ -20,7 +20,7 @@ export const searchInDB = async (query: any = "", db = "") => {
     });
   const keywordsRegEx = new RegExp(keywords.join("|"), "g");
 
-  const searchResult = db_.filter((book: any) => {
+  const result = db_.filter((book: any) => {
     book.matchRatio =
       (new Set(book.title?.match(keywordsRegEx)).size / keywords.length * 100) +
       (new Set(book.subtitle?.match(keywordsRegEx)).size / keywords.length * 100) +
@@ -39,5 +39,5 @@ export const searchInDB = async (query: any = "", db = "") => {
           100) >= 70 ||
       book.ID?.startsWith(query);
   });
-  return searchResult;
+  return {keywords, result};
 };
