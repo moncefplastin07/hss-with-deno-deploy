@@ -16,7 +16,9 @@ export const searchInDB = async (query: any = "", db = "") => {
     co: "./db/communication.json",
     pc: "./db/psychology.json",
     fl: "./db/foreign_languages.json",
-    th: "./db/thakafa.json",
+    ca: "./db/thakafa.json",
+    th: "./db/theses.json",
+    ma: "./db/master.json"
   }[db];
   if (dbPath == null) {
     return [];
