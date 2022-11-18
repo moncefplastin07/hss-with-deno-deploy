@@ -21,7 +21,7 @@ const getMatchinCount = (haystack: string, keywords: any) => {
     "g",
   );
   return new Set(
-    `${haystack}`.replace(/(أ|آ|إ)/, "ا").toLowerCase().match(keywordsRegEx),
+    `${haystack}`.replace(/(أ|آ|إ)/g, "ا").toLowerCase().match(keywordsRegEx),
   ).size;
 };
 const getBookMatchinRatio = (bookMatchs: BookMatchs, keywordsCount: number) => {
